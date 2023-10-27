@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
