@@ -1,29 +1,60 @@
-<h1>Bienvenido a nuestra home</h1>
-<!-- <h3>{{ today | date:'mm/dd/yy'}}</h3> -->
+<div class="container">
+    <h2>Encriptador Cesar</h2>
+    <form>
+        <label class="form-label mt-4" for="text">Texto:</label>
+        <input class="form-control" type="text" id="text" [(ngModel)]="text" name="text" required />
+        <label class="form-label mt-4" for="key">Clave de Desplazamiento:</label>
+        <input class="form-control" type="number" id="key" [(ngModel)]="key" name="key" required />
+        <fieldset class="form-group">
+            <legend class="mt-4">Modo:</legend>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mode" [(ngModel)]="mode" [value]="true" required>
+                <label class="form-check-label" for="optionsRadios1">
+                    Encriptar
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mode" [(ngModel)]="mode" [value]="false" required>
+                <label class="form-check-label" for="optionsRadios2">
+                    Desencriptar
+                </label>
+            </div>
+        </fieldset>
+
+
+        <h4 class="mt-4">Texto {{ mode ? 'cifrado' : 'descifrado' }}: {{ text | encrypt: key : mode }}</h4>
+    </form>
+</div>
+
+
+<!-- <h1>Bienvenido a nuestra home</h1>
+<h3>{{ today | date:'mm/dd/yy'}}</h3> 
 <h3>{{10.8 | currency:'PON'}}</h3>
 <h3>{{'HOY ES VIERNES' | lowercase}}</h3>
-<!--fechas y monedas es lo que más utilizan las PIPE en Angular. En muchas ocasiones se usan los PIPE como filtro-->
+<h2>{{'Esto es una prueba' | encrypt:26:true}}</h2>
+<h2>{{'dyhn rh yjh ryjy' | encrypt:26:false}}</h2>
+--fechas y monedas es lo que más utilizan las PIPE en Angular. En muchas ocasiones se usan los PIPE como filtro--
 <div>
     <h2>Codificar y Decodificar un Texto</h2>
     <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">Texto a codificar o decodificar:</label>
-        <input type="text" class="form-control" placeholder="Introduce texto" id="inputDefault" [(ngModel)]="texto">
+        <input type="text" class="form-control" placeholder="Introduce text" id="inputDefault" [(ngModel)]="text">
     </div>
 
     <br>
-    <button (click)="codificar()">Codificar</button>
-    <button (click)="decodificar()">Decodificar</button>
+    <button (click)="encryptor()">Codificar</button>
+    <button (click)="decryptor()">Decodificar</button>
     <br>
     <div class="form-group">
         <label for="exampleTextarea" class="form-label mt-4">Resultado:</label>
         <textarea class="form-control" id="exampleTextarea" rows="3" [readonly]="true"
             [(ngModel)]="resultado"></textarea>
     </div>
-</div>
+</div> -->
 
 <!-- <div>
 <label for="inputText">Texto:</label>
-    <textarea id="inputText" [(ngModel)]="texto"></textarea>
+    <textarea id="inputText" [(ngModel)]="text"></textarea>
     <br>
     <button (click)="codificar()">Codificar</button>
     <button (click)="decodificar()">Decodificar</button>
